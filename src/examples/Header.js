@@ -1,27 +1,41 @@
 import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-const Header = () => {
-  const data = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          author
-          data
-          description
-          person {
-            age
-            name
-          }
-          title
+const getData = graphql`
+  {
+    site {
+      info: siteMetadata {
+        author
+        data
+        description
+        person {
+          age
+          name
         }
+        title
       }
     }
-  `)
+  }
+`
+const Header = () => {
+  // Object destructure.
+  const {
+    site: {
+      info: {
+        title,
+        person: { name },
+      },
+    },
+  } = useStaticQuery(getData)
+
+  //   const data = useStaticQuery(getData)
+
   return (
     <>
-      <h2>{data.site.siteMetadata.author}</h2>
-      <h2>{data.site.siteMetadata.data}</h2>
+      {/* <h2>{data.site.siteMetadata.author}</h2>
+      <h2>{data.site.siteMetadata.data}</h2> */}
+      <h2>title: {title}</h2>
+      <h2>name: {name}</h2>
     </>
   )
 }
