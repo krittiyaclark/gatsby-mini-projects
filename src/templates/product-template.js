@@ -1,7 +1,13 @@
-import React from 'react'
+import React from "react"
 
-const ProductsTemplates = () => {
-  return <div>ProductsTemplates</div>
+const productTemplate = props => {
+  console.log(props)
+
+  return (
+    <div>
+      <h1>hello from product template</h1>
+    </div>
+  )
 }
 
-export default ProductsTemplates
+export default productTemplate
