@@ -10,6 +10,10 @@
   padding: 1rem 0;
 }
 
+.small {
+  width: 200px;
+}
+
 @media screen and (min-width: 992px) {
   .images {
     display: grid;
